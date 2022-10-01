@@ -1,0 +1,16 @@
+<?php
+require_once './libs/smarty-4.2.1/libs/Smarty.class.php';
+class viewProduct{
+
+    private $smarty;
+
+    function __construct(){
+       $this->smarty = new Smarty();
+    }
+
+    function home($products){
+        $this->smarty->assign('products', $products);
+        $this->smarty->display('templates/home.tpl');
+    }
+
+}   
