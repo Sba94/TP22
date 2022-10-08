@@ -1,6 +1,6 @@
 <?php
 require_once './libs/smarty-4.2.1/libs/Smarty.class.php';
-class viewProduct{
+class viewCategory{
 
     private $smarty;
 
@@ -8,8 +8,8 @@ class viewProduct{
        $this->smarty = new Smarty();
     }
 
-    function home($products){
-        $this->smarty->assign('products', $products);
+    function home($categories){
+        $this->smarty->assign('categories', $categories);
         $this->smarty->display('templates/home.tpl');
     }
 }
