@@ -8,8 +8,17 @@ class viewCategory{
        $this->smarty = new Smarty();
     }
 
-    function home($categories){
+    function showCategories($categories){
         $this->smarty->assign('categories', $categories);
-        $this->smarty->display('templates/home.tpl');
+        $this->smarty->display('templates/category.tpl');
     }
+
+    function showCategory($category, $productsByCategory){
+            
+        $this->smarty->assign('category', $category);
+        $this->smarty->assign('productsByCategory',  $productsByCategory);
+        $this->smarty->display('templates/category.tpl');
+
+    }
+    
 }

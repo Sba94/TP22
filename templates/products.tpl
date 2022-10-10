@@ -14,7 +14,7 @@
        <tr class="contenedor-home"> 
             <td scope="row"> {$product->name}</td>
             <td>{$product->description}</td>
-            <td class="detalle-producto"><a href="detalles/{$product->id}">Detalles</a> </td>
+            <td><a href="details/{$product->id}">Detalles</a> </td>
         <tr>
 {/foreach}  
  </tbody>

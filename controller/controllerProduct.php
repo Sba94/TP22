@@ -18,4 +18,13 @@ class controllerProduct{
         $this->view->home($products);
 
     }
+
+    public function showDetail($id){
+
+        $productDetail = $this->model->getProduct($id);
+        if(!empty($productDetail))
+        $this->view->showDetail($productDetail);
+        else
+        $this->view404->show404();
+    }
 }

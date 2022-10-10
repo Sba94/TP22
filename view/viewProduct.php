@@ -12,4 +12,12 @@ class viewProduct{
         $this->smarty->assign('products', $products);
         $this->smarty->display('templates/home.tpl');
     }
+
+    function showDetail($productDetail){
+
+        $this->smarty->assign('productDetail', $productDetail);
+        $this->smarty->display('templates/details.tpl');
+
+    }
+
 }

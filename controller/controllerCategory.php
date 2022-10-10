@@ -13,9 +13,15 @@ class controllerCategory{
 
     }
 
-    function home(){
+    function showCategories(){
         $categories = $this->model->getCategories();
-        $this->view->home($categories);
+        $this->view->showCategories($categories);
 
+    }
+
+    function showCategory($name){
+        $category = $this->model->getCategory($name);
+        $productsByCategory = $this->model->getProductsByCategory($name);
+        $this->view->showCategory($category, $productsByCategory);
     }
 }

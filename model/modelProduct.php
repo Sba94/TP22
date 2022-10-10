@@ -14,4 +14,14 @@ class modelProduct{
         $products = $query->fetchAll(PDO::FETCH_OBJ);
         return $products;
     }
+
+    function getProduct($id){
+            
+        $query = $this->db->prepare("SELECT * FROM product WHERE id=?");
+        $query->execute(array($id));
+        $productDetail = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $productDetail;
+    }
+    
 }
