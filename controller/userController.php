@@ -21,6 +21,7 @@ function validateUser() {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $user = $this->model->getUserByEmail($email);
+
     if ($user && password_verify($password, $user->password)) {
         session_start();
             $_SESSION['USER_ID'] = $user->id;
@@ -30,7 +31,9 @@ function validateUser() {
     } else {
         $this->view->userLogin("El usuario o la contraseña no existe.");
         } 
-    
+}
+
+
 function logout() {
         session_start();
         session_destroy();
@@ -41,4 +44,3 @@ function logout() {
 
 
 
-}

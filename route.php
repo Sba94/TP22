@@ -37,7 +37,7 @@ switch ($params[0]) {
 
 
        
-            case 'Login':
+            case 'userLogin':
                 $userController = new userController();
                 $userController->userLogin();
                 break;
