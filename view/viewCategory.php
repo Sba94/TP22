@@ -10,7 +10,7 @@ class viewCategory{
 
     function showCategories($categories){
         $this->smarty->assign('categories', $categories);
-        $this->smarty->display('templates/category.tpl');
+        $this->smarty->display('templates/categories.tpl');
     }
 
     function showCategory($category, $productsByCategory){

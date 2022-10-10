@@ -14,13 +14,14 @@ class controllerProduct{
     }
 
     function home(){
+        session_start();
         $products = $this->model->getProducts();
         $this->view->home($products);
 
     }
 
     public function showDetail($id){
-
+        session_start();
         $productDetail = $this->model->getProduct($id);
         if(!empty($productDetail))
         $this->view->showDetail($productDetail);
