@@ -21,4 +21,9 @@ class viewCategory{
 
     }
     
+    function adminCategory($category){
+        $this->smarty->assign('category', $category);
+        $this->smarty->display('templates/editCategory.tpl');
+    }
+
 }

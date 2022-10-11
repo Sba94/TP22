@@ -2,6 +2,7 @@
 require_once 'controller/controllerProduct.php';
 require_once 'controller/controllerCategory.php';
 require_once 'controller/userController.php';
+require_once 'controller/adminController.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -34,25 +35,67 @@ switch ($params[0]) {
         else
         $controllerCategory->showCategories();
         break;
-
-
        
-            case 'userLogin':
-                $userController = new userController();
-                $userController->userLogin();
-                break;
+    case 'userLogin':
+        $userController = new userController();
+        $userController->userLogin();
+        break;
 
-            case 'validate':
-                $userController = new userController();
-                $userController->validateUser();
-                break;
+    case 'validate':
+        $userController = new userController();
+        $userController->validateUser();
+        break;
         
-            case 'logout':
-                $userController = new userController();
-                $userController->logout();
-                break;
-        
+    case 'logout':
+        $userController = new userController();
+        $userController->logout();
+        break;
 
+    case 'adminView':
+        $adminController = new adminController();
+        $adminController->adminView();
+        break;  
+
+    case 'adminProduct':
+        $id = $params [1];
+        $adminController = new adminController();
+        $adminController->adminProduct($id);
+        break;
+
+    case 'addProduct':
+        $adminController = new adminController();
+        $adminController->addProduct();
+        break;
+
+    case 'deleteProduct':
+        $adminController = new adminController();
+        $adminController->deleteProduct($params[1]);
+        break;
+
+    case 'editProduct':
+        $id = $params[1];
+        $adminController = new adminController();
+        $adminController->editProduct($id);
+        break;
+
+    case 'adminCategory':
+        $id = $params [1];
+        $adminController = new adminController();
+        $adminController->adminCategory($id); 
+        break;
+
+    case 'addCategory':
+        $adminController = new adminController();
+        $adminController->addCategory();
+        break;
+
+    case 'deleteCategory':
+        $id = $params[1];
+        $adminController = new adminController();
+        $adminController->deleteCategory($id);
+        break;
+
+            
     default:
         echo ('404 Page not found');
         break;

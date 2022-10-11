@@ -24,4 +24,23 @@ class modelProduct{
         return $productDetail;
     }
     
+    function addProduct($name, $price, $stock, $description){
+        $query = $this->db->prepare("INSERT INTO product (name, price, stock, description) VALUES (?, ?, ?, ?)");
+        $query->execute(array($name, $price, $stock, $description));
+    }
+
+    function deleteProduct($id){
+        $query = $this->db->prepare("DELETE FROM product WHERE id=?");
+        $query->execute(array($id));
+    }
+
+    function editProduct($name, $price, $stock, $description, $id){
+        $query = $this->db->prepare("UPDATE product SET name=?, price=?, stock=?, description=?  WHERE id=?");
+        $query->execute(array($name, $price, $stock, $description, $id));
+    }
+
+    function addCategory($name, $description){
+        $query = $this->db->prepare("INSERT INTO category(name,description) VALUES (?,?)");
+        $query->execute(array($name, $description));
+    }
 }

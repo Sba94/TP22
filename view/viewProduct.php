@@ -20,4 +20,10 @@ class viewProduct{
 
     }
 
+    function adminProduct($categories, $product){
+        $this->smarty->assign('categories', $categories);
+        $this->smarty->assign('product', $product);
+        $this->smarty->display('templates/editProduct.tpl');
+    }
+
 }
