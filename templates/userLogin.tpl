@@ -16,7 +16,8 @@
                 {$error}
             </div>
         {/if}
-        <button type="submit" class="btn btn-primary mt-3">Entrar</button>
+        
+        <button type="submit" class="btn btn-secondary btn-sm">Entrar</button>
     </form>
 </div>
 

@@ -1,8 +1,8 @@
 {include file= 'templates/header.tpl'}
 
+<figure class="text-center"><h4 class="display-6">Productos por categoria</h4></figure>
 
-
-
+<ul class="list-group list-group-flush">
 {foreach from=$productsByCategory item=$product}
             
   <li class="list-group-item">Nombre: {$product->name}</li>
@@ -12,8 +12,8 @@
   
      
   {/foreach}
+</ul>
 
-</div>
 
 
 {include file= 'templates/footer.tpl'}

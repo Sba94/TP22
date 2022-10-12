@@ -12,7 +12,7 @@
 </head>
     <body>
     
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar" style="background-color: #f0d355;">
 
       <div>
 
@@ -22,13 +22,13 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="category">Categorias</a>
+            <a class="nav-link active" href="category">Categorias</a>
           </li>
 
           </li>
             {if !isset($smarty.session.USER_ID)}
               <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="userLogin">Login</a>
+              <a class="nav-link active" aria-current="page" href="userLogin">Login</a>
               </li>
             {else} 
               <li class="nav-item ml-auto">

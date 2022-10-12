@@ -20,9 +20,9 @@ class viewCategory{
 
     }
     
-    function adminCategory($category){
-        $this->smarty->assign('category', $category);
-        $this->smarty->display('templates/editCategory.tpl');
+    function adminCategory($categories){
+        $this->smarty->assign('categories', $categories);
+        $this->smarty->display('templates/categoriesAdmin.tpl');
     }
 
 }

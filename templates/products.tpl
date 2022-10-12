@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/style.css">
-<h2 class="titulo">Productos disponibles</h2>
+<figure class="text-center"><h4 class="display-6">Productos disponibles</h4></figure>
 <div class="div-table">
 <table class="table table-bordered">
  <thead class="thead">
