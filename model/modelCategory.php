@@ -33,6 +33,11 @@ class modelCategory{
     
     }
 
+    function addCategory($name, $description){
+        $query = $this->db->prepare("INSERT INTO category(name,description) VALUES (?,?)");
+        $query->execute(array($name, $description));
+    }
+    
     function deleteCategory($id){
         $query = $this->db->prepare("DELETE FROM category WHERE id=?");
         $query->execute(array($id));

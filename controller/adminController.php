@@ -5,6 +5,7 @@ require_once './view/viewCategory.php';
 require_once './model/modelProduct.php';
 require_once './view/viewProduct.php';
 require_once './helpers/userHelper.php';
+require_once './View/view404.php';
 
 class adminController {
     private $model;
@@ -12,20 +13,22 @@ class adminController {
     private $userHelper;
     private $viewCategory;
     private $modelCategory;
+    private $view404;
 
 
 function __construct() {
-    $this->modelProduct = new modelProduct();
-    $this->viewProduct = new viewProduct();
-    $this->model = new modelCategory();
+    $this->model = new modelProduct();
+    $this->view = new viewProduct();
+    $this->modelCategory = new modelCategory();
     $this->viewCategory = new viewCategory();
     $this->userHelper = new userHelper();
+    $this->view404 = new view404();
 }
 
 function admin(){
     $this->userHelper->checkloggedIn();
     $categories = $this->modelCategory->getCategories();
-    $products= $this->modelProduct->getProducts();
+    $products= $this->model->getProducts();
     $this->view->admin($products, $categories);
 }
 
@@ -37,26 +40,26 @@ function adminCategory($id){
 
 function adminProduct($id){
     $this->userHelper->checkLoggedIn();
-    $products = $this->modelProduct->getProducts($id);
+    $products = $this->model->getProducts($id);
     $categories = $this->modelCategory->getCategories();    
-    $this->viewProduct->adminProduct($products, $categories);
+    $this->view->adminProduct($products, $categories);
 }
 
 function addProduct(){
     $this->userHelper->checkLoggedIn();
-    $this->modelProduct->addProduct($_POST['name'], $_POST['price'], $_POST['stock'], $_POST['description']);
+    $this->model->addProduct($_POST['name'], $_POST['price'], $_POST['stock'], $_POST['description']);
     header("Location: " . BASE_URL . "admin");
 }
 
 function deleteProduct($id){
     $this->userHelper->checkLoggedIn();
-    $this->modelProduct->deleteProduct($id);
+    $this->model->deleteProduct($id);
     header("Location: " . BASE_URL . "admin");
 }
 
 function editProduct($id){
     $this->userHelper->checkLoggedIn();
-    $this->modelProduct->editProduct($_POST['name'], $_POST['price'], $_POST['stock'], $_POST['description']);
+    $this->model->editProduct($_POST['name'], $_POST['price'], $_POST['stock'], $_POST['description'], $_POST['id']);
     header("Location: " . BASE_URL . "admin");
 }
 

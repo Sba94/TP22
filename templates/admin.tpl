@@ -1,5 +1,6 @@
 {include file= 'templates/header.tpl'}
 
+<figure class="text-center"><h1>Agregar un producto</h1></figure>
 <form action="addProduct" method="POST">
 <div>
     <div>
@@ -7,24 +8,21 @@
             <label>Nombre</label>
             <input name="name" type="text">
         </div>
-
         <div>
             <label>Precio</label>
-            <input name="price" type="text">
+            <input name="price" type="number">
         </div>
-
         <div>
             <label>Descripcion</label>
             <input name="description" type="text">
         </div>
     </div>
-
     <div>
         <div>
             <label>Stock</label>
-            <input name="stock" type="text">
+            <input name="stock" type="number">
         </div>
-
+        
         <div> 
             <label>Categoria</label>
             <select name="id_category">
@@ -33,39 +31,32 @@
             {/foreach}
             </select>
         </div>
-
     </div>
 </div>
-
-<div>
-    <label>Descripcion</label>
-    <textarea name="description" class="form-control" rows="3"></textarea>
-</div>
-
 <button type="submit">Guardar</button>
-
 </form>
 </div>
 
 
 
-<div>
+
+<figure class="text-center"><h1>Agregar una categoria</h1></figure>
 <form action="addCategory" method="POST">
 
 <div>
     <label>Nombre</label>
-    <input type="text" name="name" id="name">
+    <input name="name" type="text" id="name">
 </div>
 
 <div>
     <label>Descripcion</label>
-    <input type="text" name="description" id="description">
+    <input name="description" type="text" id="description">
 </div>
 
 <button type="submit">Guardar</button>
-
 </form>
 </div>
+
 
 {include file="categoriesAdmin.tpl"}
 
