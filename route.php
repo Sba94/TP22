@@ -3,6 +3,7 @@ require_once 'controller/controllerProduct.php';
 require_once 'controller/controllerCategory.php';
 require_once 'controller/userController.php';
 require_once 'controller/adminController.php';
+require_once './View/view404.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -14,12 +15,9 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
-$controller = new controllerProduct();
-$controllerCategory = new controllerCategory();
-
-
 switch ($params[0]) {
     case 'home':
+        $controller = new controllerProduct();
         $controller->home();
         break;
 
@@ -51,9 +49,9 @@ switch ($params[0]) {
         $userController->logout();
         break;
 
-    case 'adminView':
+    case 'admin':
         $adminController = new adminController();
-        $adminController->adminView();
+        $adminController->admin();
         break;  
 
     case 'adminProduct':
@@ -95,8 +93,15 @@ switch ($params[0]) {
         $adminController->deleteCategory($id);
         break;
 
+    case 'editCategory':
+        $id = $params[1];
+        $adminController = new adminController();
+        $adminController->editCategory($id);
+        break;
+
             
     default:
-        echo ('404 Page not found');
+        $view404 = new view404();
+        $view404->show404();
         break;
 }

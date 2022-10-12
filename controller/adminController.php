@@ -15,31 +15,31 @@ class adminController {
 
 
 function __construct() {
-    $this->model = new modelProduct();
-    $this->view = new viewProduct();
+    $this->modelProduct = new modelProduct();
+    $this->viewProduct = new viewProduct();
     $this->model = new modelCategory();
-    $this->view = new viewCategory();
+    $this->viewCategory = new viewCategory();
     $this->userHelper = new userHelper();
 }
 
-function adminView(){
+function admin(){
     $this->userHelper->checkloggedIn();
     $categories = $this->modelCategory->getCategories();
-    $products= $this->model->getProducts();
-    $this->view->adminView($products, $categories);
+    $products= $this->modelProduct->getProducts();
+    $this->view->admin($products, $categories);
 }
 
 function adminCategory($id){
     $this->userHelper->checkLoggedIn();
-    $categories = $this->modelCategory->getCategories();
-    $this->view->adminCategory($categories);
+    $categories = $this->modelCategory->getCategories($id);
+    $this->viewCategory->adminCategory($categories);
 }
 
 function adminProduct($id){
     $this->userHelper->checkLoggedIn();
-    $products = $this->model->getProducts($id);
+    $products = $this->modelProduct->getProducts($id);
     $categories = $this->modelCategory->getCategories();    
-    $this->view->adminProduct($products, $categories);
+    $this->viewProduct->adminProduct($products, $categories);
 }
 
 function addProduct(){
@@ -50,17 +50,13 @@ function addProduct(){
 
 function deleteProduct($id){
     $this->userHelper->checkLoggedIn();
-    $this->model->deleteProduct($id);
+    $this->modelProduct->deleteProduct($id);
     header("Location: " . BASE_URL . "admin");
 }
 
 function editProduct($id){
     $this->userHelper->checkLoggedIn();
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $stock = $_POST['stock'];
-    $description = $_POST['description'];
-    $id = $this->model->editProduct($name, $price, $stock, $description);
+    $this->modelProduct->editProduct($_POST['name'], $_POST['price'], $_POST['stock'], $_POST['description']);
     header("Location: " . BASE_URL . "admin");
 }
 
@@ -70,5 +66,15 @@ function addCategory(){
     header("Location: " . BASE_URL . "admin");
 }
 
-function
+function deleteCategory($id){
+    $this->userHelper->checkLoggedIn();
+    $this->modelCategory->deleteCategory($id);
+    header("Location: " . BASE_URL . "admin");
+}
+
+function editCategory($id){
+    $this->userHelper->checkLoggedIn();
+    $this->modelCategory->editCategory($_POST['name'], $_POST['description'], $_POST['id']);
+    header("Location: " . BASE_URL . "admin"); 
+}
 }
