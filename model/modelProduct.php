@@ -24,9 +24,9 @@ class modelProduct{
         return $productDetail;
     }
     
-    function addProduct($name, $price, $stock, $description){
-        $query = $this->db->prepare("INSERT INTO product (name, price, stock, description) VALUES (?, ?, ?, ?)");
-        $query->execute(array($name, $price, $stock, $description));
+    function addProduct($name, $price, $stock, $description, $id_category){
+        $query = $this->db->prepare("INSERT INTO product (name, price, stock, description, id_category) VALUES (?, ?, ?, ?, ?)");
+        $query->execute(array($name, $price, $stock, $description, $id_category));
     }
 
     function deleteProduct($id){

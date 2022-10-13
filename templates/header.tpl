@@ -25,7 +25,14 @@
             <a class="nav-link active" href="category">Categorias</a>
           </li>
 
+        {if isset($smarty.session.USER_ID)}
+          <li class="nav-item">
+          <a class="nav-link active" href="admin">admin</a>
           </li>
+        {/if}
+          
+
+          
             {if !isset($smarty.session.USER_ID)}
               <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="userLogin">Login</a>

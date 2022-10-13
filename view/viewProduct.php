@@ -21,13 +21,13 @@ class viewProduct{
     }
 
 
-    function admin($categories, $product){
+    function admin( $products, $categories){
         $this->smarty->assign('categories', $categories);
-        $this->smarty->assign('product', $product);
-        $this->smarty->display('templates/admin');
+        $this->smarty->assign('products', $products);
+        $this->smarty->display('templates/admin.tpl');
     }
 
-    function adminProduct($categories, $product){
+    function adminProduct($product, $categories){
         $this->smarty->assign('categories', $categories);
         $this->smarty->assign('product', $product);
         $this->smarty->display('templates/editProduct.tpl');

@@ -34,20 +34,21 @@ function admin(){
 
 function adminCategory($id){
     $this->userHelper->checkLoggedIn();
-    $categories = $this->modelCategory->getCategories($id);
-    $this->viewCategory->adminCategory($categories);
+    $category = $this->modelCategory->getCategory($id);
+    $this->viewCategory->adminCategory($category);
 }
 
 function adminProduct($id){
     $this->userHelper->checkLoggedIn();
-    $products = $this->model->getProducts($id);
+    $products = $this->model->getProduct($id);
     $categories = $this->modelCategory->getCategories();    
     $this->view->adminProduct($products, $categories);
 }
 
 function addProduct(){
     $this->userHelper->checkLoggedIn();
-    $this->model->addProduct($_POST['name'], $_POST['price'], $_POST['stock'], $_POST['description']);
+    //hacer controles nulos
+    $this->model->addProduct($_POST['name'], $_POST['price'], $_POST['stock'], $_POST['description'], $_POST['id_category']);
     header("Location: " . BASE_URL . "admin");
 }
 
