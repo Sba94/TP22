@@ -5,7 +5,6 @@ require_once './view/viewCategory.php';
 require_once './model/modelProduct.php';
 require_once './view/viewProduct.php';
 require_once './helpers/userHelper.php';
-require_once './View/view404.php';
 
 class adminController {
     private $model;
@@ -13,7 +12,6 @@ class adminController {
     private $userHelper;
     private $viewCategory;
     private $modelCategory;
-    private $view404;
 
 
 function __construct() {
@@ -22,7 +20,6 @@ function __construct() {
     $this->modelCategory = new modelCategory();
     $this->viewCategory = new viewCategory();
     $this->userHelper = new userHelper();
-    $this->view404 = new view404();
 }
 
 function admin(){
@@ -47,7 +44,6 @@ function adminProduct($id){
 
 function addProduct(){
     $this->userHelper->checkLoggedIn();
-    //hacer controles nulos
     $this->model->addProduct($_POST['name'], $_POST['price'], $_POST['stock'], $_POST['description'], $_POST['id_category']);
     header("Location: " . BASE_URL . "admin");
 }

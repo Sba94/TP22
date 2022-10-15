@@ -3,7 +3,6 @@ require_once 'controller/controllerProduct.php';
 require_once 'controller/controllerCategory.php';
 require_once 'controller/userController.php';
 require_once 'controller/adminController.php';
-require_once './View/view404.php';
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -101,7 +100,6 @@ switch ($params[0]) {
 
             
     default:
-        $view404 = new view404();
-        $view404->show404();
+        echo('404 Page not found');
         break;
 }
