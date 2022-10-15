@@ -13,7 +13,7 @@
     <input type="text" class="form-control" name="description" id="name" value="{$category[0]->description}">
 </div>
 
-<button type="submit" class="btn btn-primary">Guardar</button>
+<button type="submit" class="btn btn-warning">Guardar</button>
 </form>
 
 

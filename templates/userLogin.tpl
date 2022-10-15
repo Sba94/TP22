@@ -16,8 +16,11 @@
                 {$error}
             </div>
         {/if}
-        
+
+        <div>
         <button type="submit" class="btn btn-secondary btn-sm">Entrar</button>
+        </div>
+        
     </form>
 </div>
 

@@ -7,17 +7,17 @@
 
         <div>
             <label>Nombre</label>
-            <input name="name" type="text" value="{$product[0]->name}">
+            <input name="name" type="text" class="form-control" value="{$product[0]->name}">
         </div>
 
         <div>
             <label>Precio</label>
-            <input name="price" type="text" value="{$product[0]->price}">
+            <input name="price" type="number" class="form-control" value="{$product[0]->price}">
         </div>
 
         <div>
             <label>Descripcion</label>
-            <input name="description" type="text" value="{$product[0]->description}">
+            <input name="description" type="text" class="form-control" value="{$product[0]->description}">
         </div>
 
     </div>
@@ -30,7 +30,7 @@
        
         <div> 
             <label>Categoria</label>
-            <select name="id_category">
+            <select name="id_category" class="form-control">
 
             {foreach from=$categories item=$category}
                 <option value="{$category->id}">{$category->name}</option>
@@ -41,7 +41,7 @@
     </div>
 </div>
 
-<button type="submit">Guardar</button>
+<button type="submit" class="btn btn-warning">Guardar</button>
 
 </form>
 </div>

@@ -1,31 +1,31 @@
 {include file= 'templates/header.tpl'}
-
-<figure class="text-center"><h1>Agregar un producto</h1></figure>
+<div>
+<figure class="text-center"><h4 class="display-6">Agregar un producto</h4></figure>
 <form action="addProduct" method="POST">
 <div>
     <div>
         <div>
             <label>Nombre</label>
-            <input name="name" type="text">
+            <input name="name" class="form-control" type="text">
         </div>
         <div>
             <label>Precio</label>
-            <input name="price" type="number">
+            <input name="price" type="number" class="form-control">
         </div>
         <div>
             <label>Descripcion</label>
-            <input name="description" type="text">
+            <input name="description" type="text" class="form-control">
         </div>
     </div>
     <div>
         <div>
             <label>Stock</label>
-            <input name="stock" type="number">
+            <input name="stock" type="number" class="form-control">
         </div>
         
         <div> 
             <label>Categoria</label>
-            <select name="id_category">
+            <select name="id_category" class="form-control form-control-sm">
             {foreach from=$categories item=$category}
                 <option value="{$category->id}">{$category->name}</option>
             {/foreach}
@@ -33,28 +33,29 @@
         </div>
     </div>
 </div>
-<button type="submit">Guardar</button>
+<button type="submit" class="btn btn-warning">Guardar</button>
 </form>
 </div>
 
 
 
 
-<figure class="text-center"><h1>Agregar una categoria</h1></figure>
+<figure class="text-center"><h4 class="display-6">Agregar una categoria</h4></figure>
 <form action="addCategory" method="POST">
 
 <div>
     <label>Nombre</label>
-    <input name="name" type="text" id="name">
+    <input name="name" type="text" id="name" class="form-control">
 </div>
 
 <div>
     <label>Descripcion</label>
-    <input name="description" type="text" id="description">
+    <input name="description" type="text" id="description" class="form-control">
 </div>
 
-<button type="submit">Guardar</button>
+<button type="submit" class="btn btn-warning">Guardar</button>
 </form>
+
 </div>
 
 
